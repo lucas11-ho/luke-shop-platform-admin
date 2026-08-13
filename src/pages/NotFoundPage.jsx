@@ -1,0 +1,1 @@
+import React from'react';import{navigate}from'../app/router.js';export function NotFoundPage(){return <div className="notfound"><strong>404</strong><h1>Control-plane page not found</h1><button className="primary" onClick={()=>navigate('/dashboard')}>Back to overview</button></div>}

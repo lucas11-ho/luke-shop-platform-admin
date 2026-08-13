@@ -1,0 +1,1 @@
+import{useEffect,useState}from'react';export function navigate(path){location.hash=`#${path}`}export function useHashRoute(){const read=()=>location.hash.replace(/^#/,'')||'/dashboard';const[r,setR]=useState(read);useEffect(()=>{const f=()=>setR(read());addEventListener('hashchange',f);return()=>removeEventListener('hashchange',f)},[]);return r}
