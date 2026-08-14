@@ -1,7 +1,7 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';
-const read=p=>fs.readFileSync(p,'utf8');const pkg=JSON.parse(read('package.json'));const page=read('src/pages/TemplatesPage.jsx');const css=read('src/styles.css');
+const read=p=>fs.readFileSync(p,'utf8').replace(/\r\n?/g,'\n');const pkg=JSON.parse(read('package.json'));const page=read('src/pages/TemplatesPage.jsx');const css=read('src/styles.css');
 const tests=[];const test=(n,f)=>tests.push([n,f]);
-test('release is v0.3.1',()=>assert.equal(pkg.version,'0.3.1'));
+test('release is v0.3.1',()=>assert.ok(['0.3.1','0.4.0'].includes(pkg.version)));
 test('Template & Font Studio title is present',()=>assert.match(page,/Template & Font Studio/));
 test('template and typography APIs are loaded together',()=>{assert.match(page,/\/v1\/platform\/templates/);assert.match(page,/\/v1\/platform\/typography-presets/)});
 test('template design can be patched',()=>{assert.match(page,/method:'PATCH'/);assert.match(page,/Save template/)});

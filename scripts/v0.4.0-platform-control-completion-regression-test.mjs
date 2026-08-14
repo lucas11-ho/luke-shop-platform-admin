@@ -1,0 +1,17 @@
+import fs from'node:fs';import assert from'node:assert/strict';
+const read=p=>fs.readFileSync(p,'utf8').replace(/\r\n?/g,'\n');const pkg=JSON.parse(read('package.json'));const app=read('src/app/App.jsx');const shell=read('src/components/AppShell.jsx');const auth=read('src/auth/AuthContext.jsx');const clients=read('src/pages/ClientsPage.jsx');const plans=read('src/pages/PlansPage.jsx');const templates=read('src/pages/TemplatesPage.jsx');const profile=read('src/pages/ProfilePage.jsx');const css=read('src/styles.css');
+const tests=[];const test=(n,f)=>tests.push([n,f]);
+test('release is v0.4.0',()=>assert.equal(pkg.version,'0.4.0'));
+test('platform plans can be created and edited',()=>{assert.match(plans,/\/v1\/platform\/plans/);assert.match(plans,/method:'POST'/);assert.match(plans,/method:'PATCH'/)});
+test('typography presets can be created and edited',()=>{assert.match(templates,/\/v1\/platform\/typography-presets/);assert.match(templates,/method:'POST'/);assert.match(templates,/method:'PATCH'/)});
+test('client detail manages tenant stores',()=>{assert.match(clients,/tenants\/.*\/stores/s);assert.match(clients,/Create store/);assert.match(clients,/Edit .*store|Edit store/s)});
+test('custom domains use DNS TXT challenge verification',()=>{for(const x of ['TXT name','TXT value','Check DNS now','Check DNS'])assert.ok(clients.includes(x),`missing ${x}`);assert.doesNotMatch(clients,/Mark verified/i)});
+test('tenant lifecycle exposes currency locale timezone and platform notes',()=>{for(const x of ['Currency','Locale','Timezone','Platform notes'])assert.ok(clients.includes(x),`missing ${x}`)});
+test('tenant owner identity and status can be edited',()=>{for(const x of ['Owner display name','Owner email','Owner status','Save owner account'])assert.ok(clients.includes(x),`missing ${x}`);assert.match(clients,/\/owner`|\/owner\"|\/owner'/)});
+test('platform self profile route is registered and navigable',()=>{assert.match(app,/\/profile/);assert.match(shell,/My profile/)});
+test('AuthContext can refresh platform profile after identity change',()=>assert.match(auth,/refreshProfile/));
+test('platform self identity uses PATCH me route',()=>{assert.match(profile,/\/v1\/platform\/me/);assert.match(profile,/method:'PATCH'/)});
+test('platform password change is exposed',()=>{assert.match(profile,/change-password/);assert.match(profile,/current_password/);assert.match(profile,/confirm/)});
+test('platform sessions are inspectable and revocable',()=>{assert.match(profile,/\/v1\/platform\/me\/sessions/);assert.match(profile,/revoke-others/);assert.match(profile,/request_ip/)});
+test('profile and session styles are present',()=>{for(const x of ['profile-control-grid','profile-session-row','owner-card-button'])assert.ok(css.includes(x),`missing ${x}`)});
+let passed=0;for(const[n,f]of tests){try{f();passed++;console.log(`PASS ${n}`)}catch(e){console.error(`FAIL ${n}`);throw e}}console.log(`${passed}/${tests.length} Luke Shop Platform Admin v0.4.0 Platform Control Completion checks passed`);

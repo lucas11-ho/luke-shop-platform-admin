@@ -1,0 +1,25 @@
+Luke Shop luke-shop-platform-admin v0.4.0 — Changed Files from v0.3.1
+
+Status	Path
+MODIFIED	API_INTEGRATION.md
+NEW	CHANGED_FILES_v0.4.0.txt
+NEW	DEPLOYMENT_CHECKLIST_v0.4.0.md
+MODIFIED	FILE_CHECKSUMS.sha256
+MODIFIED	MANIFEST.json
+MODIFIED	README.md
+NEW	RELEASE_NOTES_v0.4.0.md
+NEW	TECHNICAL_ANALYSIS_v0.4.0.md
+NEW	TEST_RESULT_v0.4.0.md
+MODIFIED	package.json
+MODIFIED	scripts/source-regression-test.mjs
+MODIFIED	scripts/v0.3.1-template-studio-regression-test.mjs
+NEW	scripts/v0.4.0-platform-control-completion-regression-test.mjs
+MODIFIED	src/api/client.js
+MODIFIED	src/app/App.jsx
+MODIFIED	src/auth/AuthContext.jsx
+MODIFIED	src/components/AppShell.jsx
+MODIFIED	src/pages/ClientsPage.jsx
+MODIFIED	src/pages/PlansPage.jsx
+NEW	src/pages/ProfilePage.jsx
+MODIFIED	src/pages/TemplatesPage.jsx
+MODIFIED	src/styles.css

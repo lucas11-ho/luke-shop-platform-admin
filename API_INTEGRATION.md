@@ -1,14 +1,27 @@
-# API Integration — Platform Admin v0.1.1
+# API Integration — Platform Admin v0.4.0
 
-Backend requirement: Luke Shop Backend v0.7.1+.
+Required backend: Luke Shop Backend v0.11.0.
 
-Platform Admin uses `/v1/platform/*` only. It does not query PostgreSQL directly and does not send merchant/customer tenant headers.
+Platform Admin uses `/v1/platform/*` only. It never queries PostgreSQL directly and does not send Merchant/Customer tenant headers.
 
-Routing controls:
-- tenant detail returns `storefront_path`, primary store metadata, and domain records
-- `GET /v1/platform/tenants/:tenantRef/domains`
-- `POST /v1/platform/tenants/:tenantRef/domains`
-- `POST /v1/platform/tenants/:tenantRef/domains/:domainRef/verify`
-- `DELETE /v1/platform/tenants/:tenantRef/domains/:domainRef`
+## Platform controls
 
-The frontend combines the backend-authoritative `storefront_path` with `VITE_LUKE_SHOP_CUSTOMER_WEB_BASE_URL`. Custom-domain verification in v0.1.1 is a Platform Owner foundation/manual operation; automated DNS validation and TLS provisioning are not represented as complete.
+- platform overview and audit
+- tenant list/create/detail/update
+- tenant lifecycle, plan, module/limit/capability overrides
+- tenant currency/locale/timezone/internal notes
+- tenant owner display name/email/access state/password reset/session revocation
+- tenant store list/create/update
+- plan list/create/update
+- template list/create/update/duplicate via Template Studio
+- typography preset list/create/update
+- custom-domain create/check-DNS/remove
+- Platform Owner self profile/password/session management
+
+## DNS verification
+
+Domain creation returns a one-time DNS TXT challenge. `POST /v1/platform/tenants/:tenantRef/domains/:domainRef/verify` performs a backend DNS TXT lookup. The UI does not offer a manual “mark verified” override.
+
+## Security boundary
+
+Platform Owner authorization is separate from merchant/customer identity. Sensitive tenant writes are audited by the backend.

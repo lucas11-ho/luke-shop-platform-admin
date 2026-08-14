@@ -1,47 +1,21 @@
-# LUKE_SHOP_PLATFORM_ADMIN — current release v0.3.1
+# LUKE_SHOP_PLATFORM_ADMIN — current release v0.4.0
 
-**Template & Font Studio v3** · 2026-08-14
+**Platform Control Completion** · 2026-08-14
 
-See `RELEASE_NOTES_v0.3.1.md` and `DEPLOYMENT_CHECKLIST_v0.3.1.md`.
+Requires Luke Shop Backend v0.11.0 with migration 012 for the new platform session/control fields.
 
-# Luke Shop Platform Admin v0.2.1
+See `RELEASE_NOTES_v0.4.0.md`, `TECHNICAL_ANALYSIS_v0.4.0.md` and `DEPLOYMENT_CHECKLIST_v0.4.0.md`.
 
-## v0.2.1 UX Polish
+## Platform Owner controls
 
-- Search/filter/date controls for Platform Audit.
-- Expandable audit details and local pagination.
-- Cleaner Platform Owner identity block and keyboard focus treatment.
-- Backend v0.8.0 remains unchanged.
+Platform Admin now manages plans, typography presets, tenant stores, tenant lifecycle/plan, regional settings, internal notes, tenant-owner identity/access, owner password/session revocation, custom domains with live DNS TXT verification, audit history, and the signed-in Platform Owner's own profile/password/sessions.
 
-Separate Super Admin for the Luke Shop Platform Owner. Requires **Backend v0.8.0+**.
+Template & Font Studio v3 remains the design-catalog control plane. Platform Admin never sends merchant/customer tenant headers and never queries PostgreSQL directly.
 
-## v0.2.0 Professional Control Center
+## Domain verification
 
-- Premium enterprise navigation and Platform Owner login.
-- Responsive control-plane shell using the Luke Professional Design System.
-- No API or database contract changes.
+Creating a custom domain returns a one-time DNS TXT challenge. `Check DNS` asks the backend to resolve TXT records and only verifies the domain when the expected challenge is observed. Manual “mark verified” behavior is not exposed.
 
-## v0.1.1
-- Shows each tenant's canonical Customer Web route.
-- Open/copy storefront actions.
-- Custom-domain records per tenant.
-- Add PENDING domains, manually verify during foundation testing, and remove domains.
-- Existing tenant provisioning, plans, modules, capabilities, owner security, and audit remain intact.
+## Verification
 
-## Local development
-```env
-VITE_LUKE_SHOP_API_BASE_URL=http://localhost:4100
-VITE_LUKE_SHOP_CUSTOMER_WEB_BASE_URL=http://localhost:4174
-VITE_APP_ENV=development
-```
-
-```powershell
-npm install --no-audit --no-fund
-npm run verify
-npm run build
-npm run dev
-```
-
-Open `http://localhost:4172`. Platform accounts remain separate from Client Admin accounts.
-
-Custom-domain DNS challenge/SSL automation is not included yet; domain VERIFIED state is a routing foundation controlled by Platform Owner.
+The shipped `npm run verify` command performs source/regression checks only. No local dev/build workflow is included in this release package.
