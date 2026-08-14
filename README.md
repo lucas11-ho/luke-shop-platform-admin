@@ -1,8 +1,8 @@
-# LUKE_SHOP_PLATFORM_ADMIN — current release v0.3.0
+# LUKE_SHOP_PLATFORM_ADMIN — current release v0.3.1
 
-**Template Library + Readable Platform Controls** · 2026-08-13
+**Template & Font Studio v3** · 2026-08-14
 
-See `RELEASE_NOTES_v0.3.0.md` and `DEPLOYMENT_CHECKLIST_v0.3.0.md`.
+See `RELEASE_NOTES_v0.3.1.md` and `DEPLOYMENT_CHECKLIST_v0.3.1.md`.
 
 # Luke Shop Platform Admin v0.2.1
 

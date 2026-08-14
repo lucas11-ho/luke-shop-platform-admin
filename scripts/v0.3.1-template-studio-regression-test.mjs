@@ -1,0 +1,16 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const read=p=>fs.readFileSync(p,'utf8');const pkg=JSON.parse(read('package.json'));const page=read('src/pages/TemplatesPage.jsx');const css=read('src/styles.css');
+const tests=[];const test=(n,f)=>tests.push([n,f]);
+test('release is v0.3.1',()=>assert.equal(pkg.version,'0.3.1'));
+test('Template & Font Studio title is present',()=>assert.match(page,/Template & Font Studio/));
+test('template and typography APIs are loaded together',()=>{assert.match(page,/\/v1\/platform\/templates/);assert.match(page,/\/v1\/platform\/typography-presets/)});
+test('template design can be patched',()=>{assert.match(page,/method:'PATCH'/);assert.match(page,/Save template/)});
+test('template can still be duplicated safely',()=>{assert.match(page,/method:'POST'/);assert.match(page,/Template duplicated/)});
+test('template editor manages schema v3 layout contract',()=>{assert.match(page,/schema_version:3/);for(const v of ['transparent','slider','featured_product','video','circles','image_tiles','horizontal','quick_add','ios'])assert.ok(page.includes(`'${v}'`),`missing ${v}`)});
+test('template editor manages theme tokens',()=>{for(const v of ['radius','card_style','button_style'])assert.ok(page.includes(v),`missing ${v}`)});
+test('template editor manages typography preset',()=>assert.match(page,/Font preset/));
+test('font catalog distinguishes web delivery and native fallback',()=>{assert.match(page,/Web font delivery/);assert.match(page,/Native \/ fallback stack/)});
+test('visual storefront template preview exists',()=>assert.match(page,/template-visual-v3/));
+test('business type filter exists',()=>assert.match(page,/catalog-filter-v3/));
+test('studio CSS covers template editor and font catalog',()=>{for(const v of ['.template-grid-v3','.template-visual-v3','.template-editor-v3','.font-grid-v3'])assert.ok(css.includes(v),`missing CSS ${v}`)});
+let passed=0;for(const[n,f]of tests){try{f();passed++;console.log(`PASS ${n}`)}catch(e){console.error(`FAIL ${n}`);throw e}}console.log(`${passed}/${tests.length} Luke Shop Platform Admin v0.3.1 Template & Font Studio checks passed`);

@@ -2,7 +2,7 @@ services:
   - type: web
     name: luke-shop-platform-admin
     env: static
-    buildCommand: npm ci && npm run build
+    buildCommand: npm install --no-audit --no-fund && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: VITE_LUKE_SHOP_API_BASE_URL
