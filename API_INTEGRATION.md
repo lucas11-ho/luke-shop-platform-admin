@@ -1,27 +1,20 @@
-# API Integration — Platform Admin v0.4.0
+# API Integration — Platform Admin v0.5.0
 
-Required backend: Luke Shop Backend v0.11.0.
+Required backend: Luke Shop Backend v0.12.0 with migration 013.
 
 Platform Admin uses `/v1/platform/*` only. It never queries PostgreSQL directly and does not send Merchant/Customer tenant headers.
 
-## Platform controls
+## Status visual pack control
 
-- platform overview and audit
-- tenant list/create/detail/update
-- tenant lifecycle, plan, module/limit/capability overrides
-- tenant currency/locale/timezone/internal notes
-- tenant owner display name/email/access state/password reset/session revocation
-- tenant store list/create/update
-- plan list/create/update
-- template list/create/update/duplicate via Template Studio
-- typography preset list/create/update
-- custom-domain create/check-DNS/remove
-- Platform Owner self profile/password/session management
+- `GET /v1/platform/status-visual-packs`
+- `PATCH /v1/platform/status-visual-packs/:packKey`
 
-## DNS verification
+Platform Owner can manage approved icon-name mappings and pack status/name. Backend supplies the controlled semantic-status list and approved icon-name list.
 
-Domain creation returns a one-time DNS TXT challenge. `POST /v1/platform/tenants/:tenantRef/domains/:domainRef/verify` performs a backend DNS TXT lookup. The UI does not offer a manual “mark verified” override.
+Templates store a `status_visual_pack` default. Merchant Customer Experience may inherit it or choose an explicit pack. Customer Web receives the effective resolved mapping through Backend.
 
-## Security boundary
+Arbitrary SVG/HTML icon uploads are intentionally not part of this contract.
 
-Platform Owner authorization is separate from merchant/customer identity. Sensitive tenant writes are audited by the backend.
+## Existing Platform controls carried forward
+
+Overview/audit, tenants, lifecycle/plan/overrides, regional settings, tenant owner, tenant stores, plans, templates, typography, custom-domain DNS verification and Platform Owner self-security remain supported.

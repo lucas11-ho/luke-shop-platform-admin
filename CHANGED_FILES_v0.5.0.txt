@@ -1,0 +1,24 @@
+platform v0.5.0 changed files
+Base repository: luke-shop-platform-admin
+Modified: 8
+Added: 5
+Deleted: 0
+
+[MODIFIED]
+API_INTEGRATION.md
+README.md
+package.json
+scripts/source-regression-test.mjs
+scripts/v0.3.1-template-studio-regression-test.mjs
+scripts/v0.4.0-platform-control-completion-regression-test.mjs
+src/pages/TemplatesPage.jsx
+src/styles.css
+
+[ADDED]
+DEPLOYMENT_CHECKLIST_v0.5.0.md
+RELEASE_NOTES_v0.5.0.md
+TECHNICAL_ANALYSIS_v0.5.0.md
+scripts/v0.5.0-status-visual-control-regression-test.mjs
+CHANGED_FILES_v0.5.0.txt
+
+[DELETED]

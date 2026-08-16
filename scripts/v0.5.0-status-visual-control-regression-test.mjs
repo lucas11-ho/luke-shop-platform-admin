@@ -1,0 +1,14 @@
+import fs from'node:fs';import assert from'node:assert/strict';
+const read=p=>fs.readFileSync(p,'utf8').replace(/\r\n?/g,'\n');const pkg=JSON.parse(read('package.json'));const templates=read('src/pages/TemplatesPage.jsx');const styles=read('src/styles.css');
+const tests=[];const test=(n,f)=>tests.push([n,f]);
+test('release is v0.5.0',()=>assert.equal(pkg.version,'0.5.0'));
+test('Platform Control Center defines canonical status packs',()=>{for(const k of ['AUTO','MODERN','FASHION_LUXURY','RESTAURANT_MODERN','ELECTRONICS_PRO','GROCERY_CLEAN','DIGITAL_CREATOR'])assert.ok(templates.includes(`key:'${k}'`),`missing ${k}`)});
+test('Platform Admin loads the backend status visual pack catalog',()=>assert.match(templates,/\/v1\/platform\/status-visual-packs/));
+test('Platform Owner can edit approved icon mappings',()=>{assert.match(templates,/Edit icon mapping/);assert.match(templates,/Save icon pack/);assert.match(templates,/allowedIcons/)});
+test('template editor exposes status visual pack as template-owned config',()=>{assert.match(templates,/Fulfillment status visuals/);assert.match(templates,/patchRootConfig\('status_visual_pack'/)});
+test('platform status visual catalog tab exists',()=>assert.match(templates,/value:'status'.*Status visuals/));
+test('catalog explains visual pack does not alter semantic workflow',()=>assert.match(templates,/semantic order statuses stay unchanged/));
+test('template preview identifies its selected status pack',()=>assert.match(templates,/statuses<\/small>/));
+test('arbitrary uploaded SVG or HTML icons are deliberately not supported',()=>assert.match(templates,/Arbitrary uploaded SVG\/HTML icons are intentionally not supported/));
+test('status visual control has dedicated studio styling',()=>assert.match(styles,/\.status-pack-studio/));
+let passed=0;for(const[n,f]of tests){try{f();passed++;console.log(`PASS ${n}`)}catch(e){console.error(`FAIL ${n}`);throw e}}console.log(`${passed}/${tests.length} Luke Shop Platform Admin v0.5.0 status visual control checks passed`);

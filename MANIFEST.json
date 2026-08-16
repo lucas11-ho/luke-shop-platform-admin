@@ -1,10 +1,386 @@
 {
-  "product": "LUKE_SHOP_PLATFORM_ADMIN",
-  "version": "0.4.0",
-  "release": "Platform Control Completion",
-  "date": "2026-08-14",
-  "baseline": "0.3.1",
-  "backend": "0.11.0",
-  "experience_schema": 3,
-  "notes": "Plans, typography, tenant stores/settings/owner, DNS TXT verification and Platform Owner self-security controls completed."
+  "release": "v0.5.0",
+  "repository": "luke-shop-platform-admin",
+  "generated_at": "2026-08-16T17:12:00+07:00",
+  "file_count": 74,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "2710fe508f983407cd5ba5aeb8087379e35a292fbb93544983ac0f5b885d1478",
+      "size": 135
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "7f75203f594dac506a72e9b8e92ae66d321963519420c2826cb13af073a5529e",
+      "size": 56
+    },
+    {
+      "path": ".nvmrc",
+      "sha256": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53",
+      "size": 3
+    },
+    {
+      "path": "API_INTEGRATION.md",
+      "sha256": "f1404271c07cc3acfef31d64522c3775adab9b96b9277651d125007e0218b2f0",
+      "size": 1054
+    },
+    {
+      "path": "CHANGED_FILES_v0.1.0.txt",
+      "sha256": "1fd5749d99e4f56a39624ec5f5735f029bfd0b74b0b02e2149e98c466da24784",
+      "size": 746
+    },
+    {
+      "path": "CHANGED_FILES_v0.1.1.txt",
+      "sha256": "58fb0d0510d47b688d9247b7d3f047b219d54d1da1516b2b7c6e62ea31c22650",
+      "size": 283
+    },
+    {
+      "path": "CHANGED_FILES_v0.2.0.txt",
+      "sha256": "f935ab7a8d37c67900aed193b955769f1c2dd7c39081e20b8b32ef31c5d48b3e",
+      "size": 266
+    },
+    {
+      "path": "CHANGED_FILES_v0.2.1.txt",
+      "sha256": "85e5fa83d946d0791c249bab6da128d079f43128554efef79e06b3766a5e5c13",
+      "size": 122
+    },
+    {
+      "path": "CHANGED_FILES_v0.3.0.txt",
+      "sha256": "de06ad984842792e6e07a16cbeefd10a7db4ae08e36fa509cbd0fd15e683a5c3",
+      "size": 222
+    },
+    {
+      "path": "CHANGED_FILES_v0.3.1.txt",
+      "sha256": "352c0416ec0c0b8bb0b204fc53308c51789254e5b0b56fdafe2daef52fb5eecd",
+      "size": 620
+    },
+    {
+      "path": "CHANGED_FILES_v0.4.0.txt",
+      "sha256": "281a6f19170c50399ab2f77e17d7c6c1cc1d4df22f49753974ee2e937d3012c0",
+      "size": 812
+    },
+    {
+      "path": "CHANGED_FILES_v0.5.0.txt",
+      "sha256": "1ade64710ceac5668409b82c55776d02bd8007002fb3bc33ed0164cc9fd42034",
+      "size": 536
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.1.0.md",
+      "sha256": "5b70c308f7c5b712578e325b9373e4e6ddebad7e67b02ac1f8d45c4d8b510c84",
+      "size": 287
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.1.1.md",
+      "sha256": "a997767e55ddf89d82a9bf24a999b952e9e46e36383ebc4fc96cce094af409e6",
+      "size": 429
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.2.0.md",
+      "sha256": "0b65ece73ef9b7026027be2494a898bc5d5e6c4fae805473c239af6a64056b93",
+      "size": 516
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.2.1.md",
+      "sha256": "18401d9a9718bd0f4be1313561eed6e358a52988d73dc7532b857c5f9c311f92",
+      "size": 367
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.3.0.md",
+      "sha256": "b2222493e576506054d7aec94a4e4cf0d7106a275e29aaf587c62c41aa195c8c",
+      "size": 248
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.3.1.md",
+      "sha256": "a559f2275ae532d67dd8b83cc3e07fbb07923446e3e23b5114b5e006ab442b5d",
+      "size": 658
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.4.0.md",
+      "sha256": "db7ed9ea2110761045924e8ebd2d2149533cec1fbea1fb2683aa3bd0f483d17c",
+      "size": 699
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST_v0.5.0.md",
+      "sha256": "969547b57c21bb94a80bf2b4591b357ce7659c405849a8c7254ac4816180682a",
+      "size": 471
+    },
+    {
+      "path": "HOSTING.md",
+      "sha256": "1d385fc7ee77516302fb812ec49ef306c92359981d9bfad84b8f638357b2af5b",
+      "size": 367
+    },
+    {
+      "path": "README.md",
+      "sha256": "a698f23e9e48b6919216b534447fc76eb8e018a649dfddefdac808b810a6944e",
+      "size": 1604
+    },
+    {
+      "path": "RELEASE_NOTES_v0.1.0.md",
+      "sha256": "ae65644ec9111bcd2c27ae6af9dceab92abd9f6a1fe5cda14e2872bb952c7a00",
+      "size": 390
+    },
+    {
+      "path": "RELEASE_NOTES_v0.1.1.md",
+      "sha256": "da63a79f4d4a9720e9ec9cd12fbca785f71fe16f5d53de3d14f68e4dcf981339",
+      "size": 190
+    },
+    {
+      "path": "RELEASE_NOTES_v0.2.0.md",
+      "sha256": "9a3db6615cd38054a03a5c70de0d8b1496b7cd5f9aaae3af1397b799908277c2",
+      "size": 699
+    },
+    {
+      "path": "RELEASE_NOTES_v0.2.1.md",
+      "sha256": "4f65ff0194670e604159a86057ff4ea34a109171505be9a2df802b46e33de543",
+      "size": 502
+    },
+    {
+      "path": "RELEASE_NOTES_v0.3.0.md",
+      "sha256": "6c454396a90451eab7d73aef99cb28d6fd26c4e3bce91a1f05fffcfbcc14700e",
+      "size": 444
+    },
+    {
+      "path": "RELEASE_NOTES_v0.3.1.md",
+      "sha256": "fa289b4364137a62116aa970f0f5be9a769411b05d8b1f09c1b9c2bbed702fd6",
+      "size": 601
+    },
+    {
+      "path": "RELEASE_NOTES_v0.4.0.md",
+      "sha256": "f5bb73395553ef06625ce9a740d647863dc3375750add747a1600a3a7585dbc5",
+      "size": 688
+    },
+    {
+      "path": "RELEASE_NOTES_v0.5.0.md",
+      "sha256": "f97203f8f869d7dcd9cd707508d4ccc5085987033bf2ce2bc703ec4a2c8c3967",
+      "size": 581
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "b3cc5c9d3cda0b42ea0071fcb09d61463d45e86b9b4d279950c47bb1c15b275f",
+      "size": 367
+    },
+    {
+      "path": "START-HERE-WINDOWS.bat",
+      "sha256": "0ad31873c72b00522a3dc91c4c33f2d89dc92d9683f727ba7498faac77897aa3",
+      "size": 651
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.1.0.md",
+      "sha256": "33b9b7aa2a8820c7f25673560e5c073ad95b14596cdaa810937fea13c03ee81a",
+      "size": 273
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.1.1.md",
+      "sha256": "0ba4e4fc8ea1c95ab803a8b98a2632604742305a64dc2f88038b641f38bed54b",
+      "size": 368
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.2.0.md",
+      "sha256": "8d38f82258ca0ece2c96db90e2fe4c5f28a47df1f6dc6890178e178882051ad3",
+      "size": 266
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.2.1.md",
+      "sha256": "38c6b38b127594e7106fd6596372c9b8324518ebd4d9e98b963da656c38de21f",
+      "size": 407
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.3.0.md",
+      "sha256": "eedb3e43605062e68bb661813bce15a58a52197b4b1ee40c0e3c63b924802198",
+      "size": 435
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.3.1.md",
+      "sha256": "8bf5abb4ed691b5ab0485a593711860f76f75e0d4a1e901a73c9212d3b7c4daf",
+      "size": 531
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.4.0.md",
+      "sha256": "f55047e72f5fca0c8ffa943e467b56aab666709115e0b4ce7fa62a035c30ce3b",
+      "size": 711
+    },
+    {
+      "path": "TECHNICAL_ANALYSIS_v0.5.0.md",
+      "sha256": "d0ce8e121a4964dc82756a2274fe5a7c3d78dd648f25ac63d0cf855ddb99dc65",
+      "size": 368
+    },
+    {
+      "path": "TEST_RESULT_v0.1.0.md",
+      "sha256": "902745ad95f9ddfd1ee48de637e6451b67617b6a475080ab9c776c78d6838316",
+      "size": 567
+    },
+    {
+      "path": "TEST_RESULT_v0.1.1.md",
+      "sha256": "05604438049bb45dcaf9bed46c268cd4b3813da0026827459f090be5fad9530c",
+      "size": 216
+    },
+    {
+      "path": "TEST_RESULT_v0.2.0.md",
+      "sha256": "d282dac661efe4f38a15ef9a27533e7c0e42ae2e2e3d0f569ecc48b8b0750b18",
+      "size": 687
+    },
+    {
+      "path": "TEST_RESULT_v0.2.1.md",
+      "sha256": "40e5718ae7ea8821ecdb914b10e10b733c53078b25853547001d5b5fd556bff5",
+      "size": 533
+    },
+    {
+      "path": "TEST_RESULT_v0.3.0.md",
+      "sha256": "44f8a7dff7872c965f21c8502f528cb44a82ad0663979c6f083e15a7d1cd4330",
+      "size": 296
+    },
+    {
+      "path": "TEST_RESULT_v0.3.1.md",
+      "sha256": "eef8626b210fecd3a6bfc717738cd69a9cbed4be41b5b3ce368dbb55a4a28f95",
+      "size": 552
+    },
+    {
+      "path": "TEST_RESULT_v0.4.0.md",
+      "sha256": "c35354deacdb6e2ec421f5de7e855e0a2d072b6b60057c01cf6c5f582d781bc4",
+      "size": 301
+    },
+    {
+      "path": "VERIFY-SOURCE-WINDOWS.bat",
+      "sha256": "cc26c96c9984eddb34246289eae07f2b531c280d27fa9c222ba5f01b2eb80839",
+      "size": 93
+    },
+    {
+      "path": "index.html",
+      "sha256": "9317d02426695bf5b42214f5c7e27cd948a45cae4184e6a16f0d6fa9d36eaed0",
+      "size": 312
+    },
+    {
+      "path": "package.json",
+      "sha256": "81b8b8a22f215786b49c51647b9e38efcbf237a3d740b13b21f949c7f326161b",
+      "size": 1149
+    },
+    {
+      "path": "render.yaml",
+      "sha256": "933e0830eb9dd5133e749accc0c9b6d9530a445b6251875b0ed9943f2d91c66e",
+      "size": 247
+    },
+    {
+      "path": "scripts/check-source.mjs",
+      "sha256": "7b0dd79a946af7f45ecc34b6e7653d04b9c399faaebfa71e8ae8584b2a85b4f9",
+      "size": 674
+    },
+    {
+      "path": "scripts/design-regression-test.mjs",
+      "sha256": "aa65497af0c0e54fbf600665146f83c3186280d0bc3f6d13fb873da15a879021",
+      "size": 1051
+    },
+    {
+      "path": "scripts/source-regression-test.mjs",
+      "sha256": "6594ac6a71cb3973f7313b58ff1f73b36c8d50757e55d00de20e90c98ae3d2b5",
+      "size": 4789
+    },
+    {
+      "path": "scripts/v0.3.1-template-studio-regression-test.mjs",
+      "sha256": "fd4cd4559344c1a2daf41716115837fd02a03a85596dd480248af1097a60efeb",
+      "size": 2175
+    },
+    {
+      "path": "scripts/v0.4.0-platform-control-completion-regression-test.mjs",
+      "sha256": "241e3dab1796109603162d339c48288e11f02abfa58c5dd895bb83b5667d3c34",
+      "size": 3015
+    },
+    {
+      "path": "scripts/v0.5.0-status-visual-control-regression-test.mjs",
+      "sha256": "5d29eb7c17243e346e844a59e140c98a75948952a00c8fc99ab7aa59741d1041",
+      "size": 2026
+    },
+    {
+      "path": "src/api/client.js",
+      "sha256": "e3581a76918f926733c779f6b7dcd0bd61d5e227b4297335659bffbe30809408",
+      "size": 2435
+    },
+    {
+      "path": "src/app/App.jsx",
+      "sha256": "b51ac2c878bbfb4e37a73d2fb9a9cf47a06c77f87d540f3739f5e3d0bb3ee3fe",
+      "size": 1034
+    },
+    {
+      "path": "src/app/router.js",
+      "sha256": "f63721c11db7c8f732d4f75e80fe89ecca48bc7afb9ce07fd3f7911f05ba89c5",
+      "size": 348
+    },
+    {
+      "path": "src/auth/AuthContext.jsx",
+      "sha256": "5b16779bcd2891d3ba884a8dfc49d6a52d439b42193999321a946b9084cefaaa",
+      "size": 1320
+    },
+    {
+      "path": "src/components/AppShell.jsx",
+      "sha256": "eadf9255902ac5bfce94d853de1dda591740cd2ee026613794a13c2de6dd5c33",
+      "size": 1865
+    },
+    {
+      "path": "src/components/UI.jsx",
+      "sha256": "a6e4e479ad99a2e6b98169c2ffb331a382ede32594a8ad8f26db8dc397c33943",
+      "size": 3537
+    },
+    {
+      "path": "src/main.jsx",
+      "sha256": "3d7a449b2ef6258b2bcdedb2d853c87cb503507d8b863bb43a4df20fcc4e4d43",
+      "size": 293
+    },
+    {
+      "path": "src/pages/AuditPage.jsx",
+      "sha256": "a601568ff6c0e1a1bd0d67e64c472452feebc18b010b8820c8dbc26879c05760",
+      "size": 3835
+    },
+    {
+      "path": "src/pages/ClientsPage.jsx",
+      "sha256": "22c0dbf67c7d7fa54d2c0cbe0b099c223093c92a51d0432bf341357d78fab7b1",
+      "size": 19840
+    },
+    {
+      "path": "src/pages/DashboardPage.jsx",
+      "sha256": "fafb5165850ab9779067793c7c25c63be46df33879a55fbc6bba420533713625",
+      "size": 1539
+    },
+    {
+      "path": "src/pages/LoginPage.jsx",
+      "sha256": "11e7d290ffa8b0e8889186c9d605417a3d6071b2ecaaa1e807455a254edb3268",
+      "size": 2185
+    },
+    {
+      "path": "src/pages/NotFoundPage.jsx",
+      "sha256": "0c4b2c67dc0bfa78aedd1004b302747d5c1fead01404422b8ef814ffbaaa1116",
+      "size": 283
+    },
+    {
+      "path": "src/pages/PlansPage.jsx",
+      "sha256": "90b0056bc0d1f61995de131f5a875b85ab48ba7d55edc1f996b2046925a21ba7",
+      "size": 4515
+    },
+    {
+      "path": "src/pages/ProfilePage.jsx",
+      "sha256": "4cf8ec44b3de7dd97cd8bf8890146a23cb838e02f882537c0a80a15f1d307327",
+      "size": 5594
+    },
+    {
+      "path": "src/pages/TemplatesPage.jsx",
+      "sha256": "b00570b570ea1f15d73b65d214ab2ea45402404fd6c792441d2affd96bc3829f",
+      "size": 16989
+    },
+    {
+      "path": "src/styles.css",
+      "sha256": "ad2d8ee14d7c0a73b7ba55b45fd5296b795976870bb609ab202fdfd09d647e4d",
+      "size": 29971
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "ac6cbe844cce6d153c7ec5f7b7245b3382dc26a60793b375dc8cea546494a1d1",
+      "size": 168
+    }
+  ],
+  "excluded": [
+    ".git/",
+    "node_modules/",
+    "dist/",
+    "secret .env files",
+    "MANIFEST.json",
+    "FILE_CHECKSUMS.sha256"
+  ]
 }
