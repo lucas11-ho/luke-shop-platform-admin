@@ -1,8 +1,8 @@
 {
-  "release": "v0.5.0",
+  "release": "v0.6.0",
   "repository": "luke-shop-platform-admin",
-  "generated_at": "2026-08-16T17:12:00+07:00",
-  "file_count": 74,
+  "generated_at": "2026-08-17T02:51:00+07:00",
+  "file_count": 80,
   "files": [
     {
       "path": ".env.example",
@@ -21,8 +21,8 @@
     },
     {
       "path": "API_INTEGRATION.md",
-      "sha256": "f1404271c07cc3acfef31d64522c3775adab9b96b9277651d125007e0218b2f0",
-      "size": 1054
+      "sha256": "b758cd4eb80f100038359fab0352fd5896eef3b23f13c19a476a58276b559708",
+      "size": 1390
     },
     {
       "path": "CHANGED_FILES_v0.1.0.txt",
@@ -65,6 +65,11 @@
       "size": 536
     },
     {
+      "path": "CHANGED_FILES_v0.6.0.txt",
+      "sha256": "b694d51a24759546701e5d5c1145a7cde5dd6f458f562af4ad3eb9a52c96551d",
+      "size": 583
+    },
+    {
       "path": "DEPLOYMENT_CHECKLIST_v0.1.0.md",
       "sha256": "5b70c308f7c5b712578e325b9373e4e6ddebad7e67b02ac1f8d45c4d8b510c84",
       "size": 287
@@ -105,14 +110,19 @@
       "size": 471
     },
     {
+      "path": "DEPLOYMENT_CHECKLIST_v0.6.0.md",
+      "sha256": "66a570bc063af6505a6e5d910916f657a51e8bc6ebd0361f6c30cf7e0cb637c4",
+      "size": 833
+    },
+    {
       "path": "HOSTING.md",
       "sha256": "1d385fc7ee77516302fb812ec49ef306c92359981d9bfad84b8f638357b2af5b",
       "size": 367
     },
     {
       "path": "README.md",
-      "sha256": "a698f23e9e48b6919216b534447fc76eb8e018a649dfddefdac808b810a6944e",
-      "size": 1604
+      "sha256": "3161f926af63eb23c86cb524b2ff13dcfdd97ed847c678838b68fe624ef52b1f",
+      "size": 1985
     },
     {
       "path": "RELEASE_NOTES_v0.1.0.md",
@@ -153,6 +163,11 @@
       "path": "RELEASE_NOTES_v0.5.0.md",
       "sha256": "f97203f8f869d7dcd9cd707508d4ccc5085987033bf2ce2bc703ec4a2c8c3967",
       "size": 581
+    },
+    {
+      "path": "RELEASE_NOTES_v0.6.0.md",
+      "sha256": "71d14b10372c254bd106d0d5f88145d93ed07d14c388ad38f304147615597a15",
+      "size": 542
     },
     {
       "path": "SECURITY.md",
@@ -205,6 +220,11 @@
       "size": 368
     },
     {
+      "path": "TECHNICAL_ANALYSIS_v0.6.0.md",
+      "sha256": "6a481520cb784c20f0928bec4500be1196f158216c68133769bea9dc8a7e7d29",
+      "size": 1096
+    },
+    {
       "path": "TEST_RESULT_v0.1.0.md",
       "sha256": "902745ad95f9ddfd1ee48de637e6451b67617b6a475080ab9c776c78d6838316",
       "size": 567
@@ -240,6 +260,11 @@
       "size": 301
     },
     {
+      "path": "TEST_RESULT_v0.6.0.md",
+      "sha256": "19ca666ac3d64f27a50153a2db0ea217216f3cb986528d12de3978a9865dbfbf",
+      "size": 747
+    },
+    {
       "path": "VERIFY-SOURCE-WINDOWS.bat",
       "sha256": "cc26c96c9984eddb34246289eae07f2b531c280d27fa9c222ba5f01b2eb80839",
       "size": 93
@@ -251,8 +276,8 @@
     },
     {
       "path": "package.json",
-      "sha256": "81b8b8a22f215786b49c51647b9e38efcbf237a3d740b13b21f949c7f326161b",
-      "size": 1149
+      "sha256": "f9e6753ade967de48660905bf88f53be39c8db3e7f0532ab9f4ba4f01e89819f",
+      "size": 1286
     },
     {
       "path": "render.yaml",
@@ -271,23 +296,28 @@
     },
     {
       "path": "scripts/source-regression-test.mjs",
-      "sha256": "6594ac6a71cb3973f7313b58ff1f73b36c8d50757e55d00de20e90c98ae3d2b5",
-      "size": 4789
+      "sha256": "a7012ce399aebf2f59db741111dec7189aaa9eb9b9e23b9cc628d3966d189ce6",
+      "size": 4797
     },
     {
       "path": "scripts/v0.3.1-template-studio-regression-test.mjs",
-      "sha256": "fd4cd4559344c1a2daf41716115837fd02a03a85596dd480248af1097a60efeb",
-      "size": 2175
+      "sha256": "1509907c5cb819330f22284432d3ee2b0d8ef28e1bf826a34fa255ff7c29f783",
+      "size": 2183
     },
     {
       "path": "scripts/v0.4.0-platform-control-completion-regression-test.mjs",
-      "sha256": "241e3dab1796109603162d339c48288e11f02abfa58c5dd895bb83b5667d3c34",
-      "size": 3015
+      "sha256": "2eeaea035703980d249f4b2e4402a8cd63e5ff0be57fc320261fdfcf9f16a29b",
+      "size": 3023
     },
     {
       "path": "scripts/v0.5.0-status-visual-control-regression-test.mjs",
-      "sha256": "5d29eb7c17243e346e844a59e140c98a75948952a00c8fc99ab7aa59741d1041",
-      "size": 2026
+      "sha256": "6e272dd4a9294d699ffe2e82f3d0ac0511eeb9f021160f0592eea3be5c0d1a0c",
+      "size": 2043
+    },
+    {
+      "path": "scripts/v0.6.0-customer-identity-governance-regression-test.mjs",
+      "sha256": "d4ff626f25858dec9c737161a2abc7957c7fccca3680ce1cec73da1de5d70375",
+      "size": 1139
     },
     {
       "path": "src/api/client.js",
@@ -331,8 +361,8 @@
     },
     {
       "path": "src/pages/ClientsPage.jsx",
-      "sha256": "22c0dbf67c7d7fa54d2c0cbe0b099c223093c92a51d0432bf341357d78fab7b1",
-      "size": 19840
+      "sha256": "3f880f7d5be57a1b3c34b84b4f21f531c49b91d320c55fc6fbe6eac5816dc01c",
+      "size": 21150
     },
     {
       "path": "src/pages/DashboardPage.jsx",
@@ -366,21 +396,13 @@
     },
     {
       "path": "src/styles.css",
-      "sha256": "ad2d8ee14d7c0a73b7ba55b45fd5296b795976870bb609ab202fdfd09d647e4d",
-      "size": 29971
+      "sha256": "07167253aad82f538f32874036de65f1056706664b2c627d78acf0f14558052d",
+      "size": 31021
     },
     {
       "path": "vite.config.js",
       "sha256": "ac6cbe844cce6d153c7ec5f7b7245b3382dc26a60793b375dc8cea546494a1d1",
       "size": 168
     }
-  ],
-  "excluded": [
-    ".git/",
-    "node_modules/",
-    "dist/",
-    "secret .env files",
-    "MANIFEST.json",
-    "FILE_CHECKSUMS.sha256"
   ]
 }

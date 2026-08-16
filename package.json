@@ -1,7 +1,7 @@
 {
   "name": "luke-shop-platform-admin",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "engines": {
     "node": ">=24"
@@ -12,11 +12,12 @@
     "preview": "vite preview --host 0.0.0.0 --port 4172",
     "check": "node scripts/check-source.mjs",
     "test:source": "node scripts/source-regression-test.mjs",
-    "verify": "npm run check && npm run test:source && npm run test:design && npm run test:studio-v3 && npm run test:control-v04 && npm run test:status-visual-v05",
+    "verify": "npm run check && npm run test:source && npm run test:design && npm run test:studio-v3 && npm run test:control-v04 && npm run test:status-visual-v05 && npm run test:identity-v06",
     "test:design": "node scripts/design-regression-test.mjs",
     "test:studio-v3": "node scripts/v0.3.1-template-studio-regression-test.mjs",
     "test:control-v04": "node scripts/v0.4.0-platform-control-completion-regression-test.mjs",
-    "test:status-visual-v05": "node scripts/v0.5.0-status-visual-control-regression-test.mjs"
+    "test:status-visual-v05": "node scripts/v0.5.0-status-visual-control-regression-test.mjs",
+    "test:identity-v06": "node scripts/v0.6.0-customer-identity-governance-regression-test.mjs"
   },
   "dependencies": {
     "react": "19.1.1",
@@ -26,5 +27,5 @@
     "@vitejs/plugin-react": "4.7.0",
     "vite": "7.1.2"
   },
-  "description": "Luke Shop Platform Admin v0.5.0 \u2014 Status Visual Pack Control Center"
+  "description": "Luke Shop Platform Admin v0.6.0 — Customer Identity & Login Governance Visibility"
 }

@@ -1,10 +1,17 @@
-# LUKE_SHOP_PLATFORM_ADMIN — current release v0.5.0
+# LUKE_SHOP_PLATFORM_ADMIN — current release v0.6.0
 
-**Status Visual Pack Control Center** · 2026-08-16
+**Customer Identity & Login Governance Visibility** · 2026-08-17
 
-Requires Luke Shop Backend v0.12.0 with migration 013 for platform-managed status visual packs; existing platform control features remain compatible.
+Requires Luke Shop Backend v0.13.0 with migration 014 for customer identity governance visibility; status visual and existing platform control features remain compatible.
 
-See `RELEASE_NOTES_v0.5.0.md`, `TECHNICAL_ANALYSIS_v0.5.0.md` and `DEPLOYMENT_CHECKLIST_v0.5.0.md`.
+See `RELEASE_NOTES_v0.6.0.md`, `TECHNICAL_ANALYSIS_v0.6.0.md` and `DEPLOYMENT_CHECKLIST_v0.6.0.md`.
+
+
+## v0.6.0 release focus
+
+Requires Backend v0.13.0 + migration 014. Platform operators can inspect a tenant’s customer ID prefix, next code and configured login methods without silently overriding merchant-owned customer login policy.
+
+Coordinated versions: Backend v0.13.0, Merchant Admin v0.11.0, Customer Web v0.8.0, Platform Admin v0.6.0.
 
 ## Status Visual Pack Control Center
 
