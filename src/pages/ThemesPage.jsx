@@ -6,7 +6,7 @@ const SAMPLE={
   key:'LUKE_COMMERCE_IOS',
   version:'1.1.0',
   name:'Luke Commerce iOS',
-  description:'Professional commerce foundation for Customer Web with iOS-inspired controls, mobile navigation and selectable approved component variants.',
+  description:'Professional commerce foundation for Customer Web with iOS-inspired controls, mobile navigation and renderer-backed Product Card choices.',
   supported_apps:['CUSTOMER_WEB'],
   manifest:{
     schema_version:1,
@@ -15,17 +15,10 @@ const SAMPLE={
     icons:{pack:'LUKE_OUTLINE',active_style:'filled',inactive_style:'outline',size:24},
     buttons:{primary:'ios_filled',secondary:'soft',tertiary:'ghost',destructive:'solid',icon:'round',size:'standard'},
     navigation:{mobile:'ios_tab',desktop:'header',labels:'always',active_indicator:'filled_icon',container:'edge'},
-    components:{product_card:'soft',header:'logo_left',hero:'split',categories:'cards',product_gallery:'thumbnails',buy_box:'sticky'},
-    component_options:{
-      product_card:['standard','minimal','soft','bold','technical','compact','quick_add','editorial'],
-      header:['logo_left','centered_logo','search_first','compact','transparent'],
-      hero:['split','full_width','slider','featured_product','video','minimal'],
-      categories:['cards','circles','image_tiles','chips','horizontal'],
-      product_gallery:['thumbnails','stacked'],
-      buy_box:['sticky','standard']
-    }
+    components:{product_card:'soft'},
+    component_options:{product_card:['standard','minimal','soft','bold','technical','compact','quick_add','editorial']}
   },
-  preview:{summary:'Clean iOS-inspired commerce system with approved selectable storefront components and professional mobile tab navigation.',figma_url:'',thumbnail_url:'',tags:['commerce','ios','mobile','components']}
+  preview:{summary:'Clean iOS-inspired commerce system with a safe selectable Product Card renderer and professional mobile tab navigation.',figma_url:'',thumbnail_url:'',tags:['commerce','ios','mobile','components']}
 };
 const stringify=value=>JSON.stringify(value,null,2);
 const appLabel=value=>value==='CUSTOMER_WEB'?'Customer Web':value==='STAFF_WEB'?'Staff Web':value;
@@ -76,7 +69,7 @@ function ThemeInstaller({open,onClose,source,setSource,parseError,parse,install,
   useEffect(()=>{if(!open)setPreview(null)},[open]);
   const validate=()=>{const value=parse();if(value)setPreview(value)};
   return <Modal open={open} onClose={onClose} title="Install theme package" size="xl" footer={<><button className="secondary" onClick={onClose}>Cancel</button><button className="secondary" onClick={validate}>Validate package</button><button className="primary" disabled={busy==='install'} onClick={install}>{busy==='install'?'Installing…':'Install as Draft'}</button></>}>
-    <div className="theme-installer-layout"><section className="theme-installer-editor"><div className="theme-installer-upload"><div><strong>Theme package JSON</strong><span>Choose a JSON exported from your design workflow, or paste/edit the manifest manually.</span></div><button className="secondary" onClick={()=>fileRef.current?.click()}>Upload JSON</button><input ref={fileRef} type="file" accept="application/json,.json" hidden onChange={fileSelected}/></div><textarea className="theme-package-json" spellCheck="false" value={source} onChange={e=>{setSource(e.target.value);setPreview(null)}}/>{parseError&&<div className="alert error"><strong>Package validation</strong><span>{parseError}</span></div>}</section><section className="theme-installer-guide"><strong>Theme System v1 package · A3</strong><ol><li>Use a unique uppercase <code>key</code> and semantic <code>version</code>.</li><li>Choose <code>CUSTOMER_WEB</code>, <code>STAFF_WEB</code>, or both.</li><li>Define foundations, typography, icons, buttons and navigation.</li><li><code>components</code> defines safe package defaults; <code>component_options</code> advertises only variants merchants may switch to.</li><li>Backend intersects every advertised/selected component with the application's real renderer capability catalog.</li><li>Raw CSS, HTML, SVG, scripts or JavaScript are rejected by Backend validation.</li><li>After publishing, that exact version becomes immutable. Install a new version for later changes.</li></ol>{preview?<PackagePreview value={preview}/>:<div className="theme-validation-placeholder">Select <strong>Validate package</strong> to review metadata before installing.</div>}</section></div>
+    <div className="theme-installer-layout"><section className="theme-installer-editor"><div className="theme-installer-upload"><div><strong>Theme package JSON</strong><span>Choose a JSON exported from your design workflow, or paste/edit the manifest manually.</span></div><button className="secondary" onClick={()=>fileRef.current?.click()}>Upload JSON</button><input ref={fileRef} type="file" accept="application/json,.json" hidden onChange={fileSelected}/></div><textarea className="theme-package-json" spellCheck="false" value={source} onChange={e=>{setSource(e.target.value);setPreview(null)}}/>{parseError&&<div className="alert error"><strong>Package validation</strong><span>{parseError}</span></div>}</section><section className="theme-installer-guide"><strong>Theme System v1 package · A3</strong><ol><li>Use a unique uppercase <code>key</code> and semantic <code>version</code>.</li><li>Choose <code>CUSTOMER_WEB</code>, <code>STAFF_WEB</code>, or both.</li><li>Define foundations, typography, icons, buttons and navigation.</li><li><code>components</code> defines safe package defaults; <code>component_options</code> advertises only variants merchants may switch to.</li><li>A3 v1 activates Product Card for Customer Web and Workspace Card for Staff Web; later structural components are not advertised until their renderers are wired.</li><li>Backend intersects every advertised/selected component with the application's real renderer capability catalog.</li><li>Raw CSS, HTML, SVG, scripts or JavaScript are rejected by Backend validation.</li><li>After publishing, that exact version becomes immutable. Install a new version for later changes.</li></ol>{preview?<PackagePreview value={preview}/>:<div className="theme-validation-placeholder">Select <strong>Validate package</strong> to review metadata before installing.</div>}</section></div>
   </Modal>;
 }
 
