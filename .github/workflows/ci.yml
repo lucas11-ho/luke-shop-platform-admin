@@ -1,0 +1,21 @@
+name: Luke Shop Platform Admin CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --registry=https://registry.npmjs.org/
+      - name: Verify source and regressions
+        run: npm run verify
+      - name: Production build
+        run: npm run build
+      - name: Dependency audit
+        run: npm audit --audit-level=high --registry=https://registry.npmjs.org/
