@@ -1,7 +1,8 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>fs.readFileSync(p,'utf8');const pkg=JSON.parse(read('package.json'));const page=read('src/pages/TemplatesPage.jsx');const css=read('src/styles.css');
+const atLeast=(major,minor,patch=0)=>{const [a=0,b=0,c=0]=String(pkg.version).split('.').map(Number);return a>major||(a===major&&(b>minor||(b===minor&&c>=patch)))};
 const tests=[];const test=(n,f)=>tests.push([n,f]);
-test('release is v0.3.1',()=>assert.ok(['0.3.1','0.4.0','0.5.0','0.6.0'].includes(pkg.version)));
+test('release retains v0.3.1 Template Studio baseline',()=>assert.ok(atLeast(0,3,1)));
 test('Template & Font Studio title is present',()=>assert.match(page,/Template & Font Studio/));
 test('template and typography APIs are loaded together',()=>{assert.match(page,/\/v1\/platform\/templates/);assert.match(page,/\/v1\/platform\/typography-presets/)});
 test('template design can be patched',()=>{assert.match(page,/method:'PATCH'/);assert.match(page,/Save template/)});
@@ -13,4 +14,4 @@ test('font catalog distinguishes web delivery and native fallback',()=>{assert.m
 test('visual storefront template preview exists',()=>assert.match(page,/template-visual-v3/));
 test('business type filter exists',()=>assert.match(page,/catalog-filter-v3/));
 test('studio CSS covers template editor and font catalog',()=>{for(const v of ['.template-grid-v3','.template-visual-v3','.template-editor-v3','.font-grid-v3'])assert.ok(css.includes(v),`missing CSS ${v}`)});
-let passed=0;for(const[n,f]of tests){try{f();passed++;console.log(`PASS ${n}`)}catch(e){console.error(`FAIL ${n}`);throw e}}console.log(`${passed}/${tests.length} Luke Shop Platform Admin v0.3.1 Template & Font Studio checks passed`);
+let passed=0;for(const[n,f]of tests){try{f();passed++;console.log(`PASS ${n}`)}catch(e){console.error(`FAIL ${n}`);throw e}}console.log(`${passed}/${tests.length} Luke Shop Platform Admin Template & Font Studio checks passed`);
