@@ -1,12 +1,13 @@
 import fs from'node:fs';
 const source=fs.readFileSync('src/pages/ThemesPage.jsx','utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
-pass(source.includes("key:'LUKE_COMMERCE_IOS'")&&source.includes("version:'1.2.0'"),'Built-in commercial package uses immutable LUKE_COMMERCE_IOS v1.2.0');
-pass(source.includes("name:'Luke Commerce iOS v1'"),'Package has the customer-facing commercial theme name');
+pass(source.includes("key:'LUKE_COMMERCE_IOS'")&&source.includes("version:'1.3.0'"),'Built-in commercial package advances immutably to LUKE_COMMERCE_IOS v1.3.0');
+pass(source.includes("name:'Luke Commerce iOS v1'"),'Package keeps the customer-facing commercial theme name');
 pass(source.includes("typography:{preset:'IOS_SYSTEM',scale:'standard'}"),'Package uses the real iOS system typography renderer');
 pass(source.includes("primary:'ios_filled'")&&source.includes("secondary:'ios_tonal'")&&source.includes("icon:'ios_circle'"),'Package declares the commercial iOS control recipe');
-pass(source.includes("mobile:'ios_tab'")&&source.includes("active_indicator:'filled_icon'")&&source.includes("container:'edge'"),'Default navigation is the clean iOS tab recipe without a background indicator');
+pass(source.includes("mobile:'ios_tab'")&&source.includes("active_indicator:'filled_icon'")&&source.includes("container:'edge'"),'Default navigation remains the clean iOS tab recipe');
 pass(source.includes("pack:'PHOSPHOR_NAV'")&&source.includes("home:'house'")&&source.includes("profile:'user-circle'"),'Professional Phosphor icon family and defaults are bundled');
 pass(source.includes("components:{product_card:'minimal'}"),'Commercial Product Card default maps to the validated minimal renderer');
+pass(source.includes('Existing v1.2.0 stores stay unchanged'),'v1.3 does not silently mutate stores pinned to v1.2.0');
 pass(source.includes('Load built-in package')&&source.includes('Install as Draft'),'Platform Owner can load the built-in package without bypassing Draft review');
 pass(source.includes('Published versions are immutable'),'Installer preserves immutable-version guidance');
 pass(!source.includes('dangerouslySetInnerHTML')&&!source.includes('eval(')&&!source.includes('new Function'),'Theme Library executes no theme package code');
