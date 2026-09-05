@@ -17,6 +17,8 @@ jobs:
         run: npm run verify
       - name: Theme System v1 A3 professional icon catalog guard
         run: node scripts/v0.8.0-theme-library-v1-a3-regression-test.mjs
+      - name: Luke Commerce iOS v1 package guard
+        run: node scripts/v0.8.0-luke-commerce-ios-v1-regression-test.mjs
       - name: Production build
         run: npm run build
       - name: Dependency audit
