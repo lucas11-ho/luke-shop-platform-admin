@@ -5,6 +5,6 @@ pass(pkg.dependencies?.['@phosphor-icons/react']==='2.1.10','Platform Admin pins
 pass(page.includes("icons:{pack:'PHOSPHOR_NAV'")&&page.includes('allowed:PHOSPHOR_NAV'),'A3 sample installs a bounded professional Phosphor icon pack');
 pass(page.includes("navigation_defaults:{home:'house',explore:'storefront',cart:'shopping-bag',orders:'receipt',profile:'user-circle'}"),'A3 sample defines professional defaults for every Customer tab');
 pass(page.includes('ThemePhosphorIcon')&&!page.includes("['⌂'")&&!page.includes('▦'),'Platform theme preview no longer uses Unicode placeholder glyphs');
-pass(page.includes('SVG/HTML/JavaScript is not accepted'),'Installer explains safe icon/source boundary even when later safety guidance also names CSS');
+pass(page.includes('arbitrary CSS/SVG/HTML/JavaScript')&&page.includes('not accepted'),'Installer explains safe non-executable package boundary while allowing additive font-safety guidance');
 pass(icons.includes("from '@phosphor-icons/react'"),'Platform preview uses the same professional icon family as runtime');
 console.log(`${n}/${n} Platform Theme System v1 A3 icon checks passed`);
