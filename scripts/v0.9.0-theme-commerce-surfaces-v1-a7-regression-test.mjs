@@ -1,0 +1,16 @@
+import fs from'node:fs';
+const source=fs.readFileSync('src/pages/ThemesPage.jsx','utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
+pass(source.includes("version:'1.6.0'"),'built-in Luke Commerce package advances immutably to v1.6.0');
+pass(source.includes("header_surface:['standard','ios_clean','compact','glass']"),'v1.6 advertises bounded Header surfaces');
+pass(source.includes("search_surface:['standard','ios_search','pill','sheet']"),'v1.6 advertises bounded Search surfaces');
+pass(source.includes("account_surface:['standard','ios_grouped','soft','compact']"),'v1.6 advertises bounded Account surfaces');
+pass(source.includes("cart_surface:['standard','ios_grouped','soft','compact']")&&source.includes("checkout_surface:['standard','ios_grouped','soft','compact']"),'v1.6 advertises bounded Cart and Checkout surfaces');
+pass(source.includes("header_surface:'ios_clean',search_surface:'ios_search',account_surface:'ios_grouped',cart_surface:'ios_grouped',checkout_surface:'ios_grouped'"),'v1.6 declares renderer-backed commercial defaults for all five surfaces');
+pass(source.includes('Commerce Surface Composers')||source.includes('Commerce Surface Composer'),'Platform describes the A7 governed commerce-surface capability');
+pass(source.includes('preserving Store Designer structure and required commerce flows'),'v1.6 preview documents Store Designer and commerce authority separation');
+pass(source.includes('Existing v1.2/v1.3/v1.4/v1.5 stores stay unchanged'),'v1.6 explicitly preserves all earlier exact store selections');
+pass(source.includes('Install it as a Draft, review it, then publish the immutable v1.6.0 package'),'Platform Owner still controls manual Draft review and publish lifecycle');
+pass(source.includes('renderer-backed <code>component_options</code>'),'installer documents renderer-backed named variants only');
+pass(source.includes('arbitrary CSS/SVG/HTML/JavaScript or custom font URLs are not accepted'),'installer keeps non-executable package safety boundary');
+pass(!source.includes('dangerouslySetInnerHTML')&&!source.includes('eval(')&&!source.includes('new Function'),'A7 package path executes no package code');
+console.log(`${n}/${n} Luke Theme Commerce Surfaces v1 A7 Platform checks passed`);
