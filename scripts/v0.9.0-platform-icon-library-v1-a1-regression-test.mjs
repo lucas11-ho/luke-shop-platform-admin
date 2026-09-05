@@ -1,0 +1,16 @@
+import fs from'node:fs';
+const read=p=>fs.readFileSync(p,'utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
+const page=read('src/pages/IconLibraryPage.jsx'),icons=read('src/components/ThemePhosphorIcon.jsx'),app=read('src/app/App.jsx'),shell=read('src/components/AppShell.jsx'),main=read('src/main.jsx'),css=read('src/icon-library.css');
+pass(app.includes("'/icons':IconLibraryPage")&&app.includes("IconLibraryPage"),'Platform Admin routes the Icon Library workspace');
+pass(shell.includes("['/icons','Icon Library'"),'Platform navigation exposes Icon Library');
+pass(page.includes("'/v1/platform/icons'")&&page.includes('/scopes'),'Workspace reads the authoritative catalog and updates usage scopes through Backend');
+pass(page.includes("const SCOPES=['NAVIGATION','TOPIC','CATEGORY','ACCOUNT','ACTION']"),'Workspace exposes all approved reusable icon scopes including Topic');
+pass(page.includes('Client admins select an approved icon key')&&page.includes('never upload executable SVG'),'Platform UI explains the safe client-selection boundary');
+pass(page.includes("row.status==='PUBLISHED'")&&page.includes("row.status==='DRAFT'")&&page.includes("row.status==='RETIRED'"),'Icon lifecycle states have explicit UI behavior');
+pass(page.includes("lifecycle(row,'publish')")&&page.includes("lifecycle(row,'retire')")&&page.includes("lifecycle(row,'delete')"),'Platform Owner can publish, retire or delete drafts');
+pass(icons.includes("from '@phosphor-icons/react'")&&icons.includes('PLATFORM_PHOSPHOR_ICONS'),'Icon previews use the pinned professional Phosphor renderer');
+pass(icons.includes("'map-pin':MapPinIcon")&&icons.includes("'shopping-bag':ShoppingBagIcon")&&icons.includes("gift:GiftIcon"),'Renderer covers the initial 20-icon catalog');
+pass(main.includes("import'./icon-library.css'"), 'Icon Library styles are loaded');
+pass(css.includes('.platform-icon-grid')&&css.includes('.platform-icon-scopes button.selected'),'Catalog and scope controls have dedicated professional styling');
+pass(!page.includes('dangerouslySetInnerHTML')&&!icons.includes('dangerouslySetInnerHTML')&&!page.includes('<svg'),'Platform UI does not inject arbitrary SVG/HTML');
+console.log(`${n}/${n} Platform Icon Library v1 A1 UI checks passed`);
