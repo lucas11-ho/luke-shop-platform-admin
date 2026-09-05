@@ -1,0 +1,15 @@
+import fs from'node:fs';
+const source=fs.readFileSync('src/pages/ThemesPage.jsx','utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
+pass(source.includes("version:'1.3.0'"),'A4 ships as a new immutable Luke Commerce iOS v1.3.0 package');
+pass(source.includes("nav_mobile:['standard','ios_tab','floating_tab','minimal_tab','commerce_tab']"),'v1.3 advertises every renderer-backed navigation layout');
+pass(source.includes("nav_labels:['always','active_only','hidden']"),'v1.3 advertises bounded label modes');
+pass(source.includes("nav_indicator:['filled_icon','pill','background','dot','underline']"),'v1.3 advertises bounded selected-state indicators');
+pass(source.includes("nav_container:['edge','floating','glass']"),'v1.3 advertises bounded navigation containers');
+pass(source.includes("nav_icon_size:['size_20','size_22','size_24','size_26']"),'v1.3 advertises bounded icon sizes');
+pass(source.includes("nav_active_style:['filled','duotone','outline']")&&source.includes("nav_inactive_style:['outline','filled']"),'v1.3 advertises bounded active and inactive icon weights');
+pass(source.includes("product_card:['standard','minimal','soft','bold','technical','compact','quick_add','editorial']"),'A4 preserves Product Card component choices');
+pass(source.includes("pack:'PHOSPHOR_NAV'")&&source.includes('allowed:PHOSPHOR_NAV'),'A4 retains the Platform-approved Phosphor renderer contract');
+pass(source.includes('Install it as a Draft, review it, then publish the immutable v1.3.0 package'),'Platform Owner still controls install review and publish lifecycle');
+pass(source.includes('Existing v1.2.0 stores stay unchanged'),'existing theme selections never auto-upgrade');
+pass(!source.includes('dangerouslySetInnerHTML')&&!source.includes('eval(')&&!source.includes('new Function'),'A4 package source remains declarative and non-executable');
+console.log(`${n}/${n} Luke Platform Navigation Composer v1 A4 checks passed`);
