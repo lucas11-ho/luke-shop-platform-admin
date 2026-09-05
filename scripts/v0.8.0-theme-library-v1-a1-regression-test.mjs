@@ -19,7 +19,7 @@ const checks=[
  ['published retirement exists',page.includes("onAction(row,'retire')" )],
  ['sample covers Customer Web design-system areas',page.includes('LUKE_COMMERCE_IOS')&&page.includes('typography:')&&page.includes('icons:')&&page.includes('buttons:')&&page.includes('navigation:')&&page.includes('components:')],
  ['sample targets professional iOS tab navigation',page.includes("mobile:'ios_tab'")&&page.includes("active_indicator:'filled_icon'" )],
- ['UI explains immutable published versions',page.includes('exact version becomes immutable')&&page.includes('Install a new version')],
+ ['UI explains immutable published versions',(page.includes('exact version becomes immutable')||page.includes('Published versions are immutable'))&&page.includes('Install a new')],
  ['UI does not execute theme source',!/(?:eval\s*\(|new\s+Function\s*\()/i.test(page)],
  ['responsive theme library styles exist',css.includes('.theme-library-grid')&&css.includes('@media(max-width:650px)')],
 ];

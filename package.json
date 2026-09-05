@@ -25,6 +25,7 @@
     "test:themes-v08": "node scripts/v0.8.0-theme-library-v1-a1-regression-test.mjs"
   },
   "dependencies": {
+    "@phosphor-icons/react": "2.1.10",
     "react": "19.1.1",
     "react-dom": "19.1.1"
   },
