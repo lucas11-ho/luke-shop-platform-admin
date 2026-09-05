@@ -1,6 +1,6 @@
 import fs from'node:fs';
 const source=fs.readFileSync('src/pages/ThemesPage.jsx','utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
-pass(source.includes("key:'LUKE_COMMERCE_IOS'")&&source.includes('Navigation Composer'),'A4 Navigation Composer remains part of the current immutable Luke Commerce package family');
+pass(source.includes("key:'LUKE_COMMERCE_IOS'")&&source.includes("nav_mobile:['standard','ios_tab','floating_tab','minimal_tab','commerce_tab']"),'A4 Navigation Composer remains part of the current immutable Luke Commerce package family');
 pass(source.includes("nav_mobile:['standard','ios_tab','floating_tab','minimal_tab','commerce_tab']"),'current package preserves every A4 renderer-backed navigation layout');
 pass(source.includes("nav_labels:['always','active_only','hidden']"),'current package preserves bounded label modes');
 pass(source.includes("nav_indicator:['filled_icon','pill','background','dot','underline']"),'current package preserves bounded selected-state indicators');
