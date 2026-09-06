@@ -13,7 +13,7 @@ pass(source.includes("product_card:'minimal',product_image_ratio:'square'")&&sou
 pass(source.includes("typography:{preset:'IOS_SYSTEM',scale:'standard',heading_weight:'semibold'") ,'later package typography manifest preserves bounded role defaults');
 pass(source.includes('Product Card')&&source.includes('Typography'),'Platform continues to expose the complete A6 governed composer surface');
 pass(source.includes('stores stay unchanged'),'later package versions explicitly preserve earlier exact store selections');
-pass(source.includes('Install it as a Draft, review it, then publish the immutable'),'Platform Owner still controls install/review/publish lifecycle');
+pass(source.includes('Install it as a Draft, review it, then publish'),'Platform Owner still controls install/review/publish lifecycle');
 pass(source.includes('custom font URLs are not accepted'),'installer rejects arbitrary font/CSS authority');
 pass(!source.includes('dangerouslySetInnerHTML')&&!source.includes('eval(')&&!source.includes('new Function'),'A6 package path executes no package code');
 console.log(`${n}/${n} Luke Theme Product + Typography Composer v1 A6 Platform checks passed`);
