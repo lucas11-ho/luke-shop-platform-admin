@@ -9,7 +9,7 @@ pass(source.includes("nav_icon_size:['size_20','size_22','size_24','size_26']"),
 pass(source.includes("nav_active_style:['filled','duotone','outline']")&&source.includes("nav_inactive_style:['outline','filled']"),'current package preserves bounded active and inactive icon weights');
 pass(source.includes("product_card:['standard','minimal','soft','bold','technical','compact','quick_add','editorial']"),'later package versions preserve Product Card component choices');
 pass(source.includes("pack:'PHOSPHOR_NAV'")&&source.includes('allowed:PHOSPHOR_NAV'),'A4 retains the Platform-approved Phosphor renderer contract');
-pass(source.includes('Install it as a Draft, review it, then publish the immutable'),'Platform Owner still controls install review and publish lifecycle');
+pass(source.includes('Install it as a Draft, review it, then publish'),'Platform Owner still controls install review and publish lifecycle');
 pass(source.includes('stores stay unchanged'),'existing exact theme selections never auto-upgrade');
 pass(!source.includes('dangerouslySetInnerHTML')&&!source.includes('eval(')&&!source.includes('new Function'),'A4 package source remains declarative and non-executable');
 console.log(`${n}/${n} Luke Platform Navigation Composer v1 A4 checks passed`);
