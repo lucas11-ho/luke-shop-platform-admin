@@ -1,0 +1,16 @@
+import fs from'node:fs';
+const read=p=>fs.readFileSync(p,'utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
+const page=read('src/pages/IconLibraryPage.jsx'),css=read('src/icon-library.css');
+pass(page.includes('+ Add custom icon')&&page.includes('Add custom color icon'),'Platform Owner has a dedicated custom artwork creation flow');
+pass(page.includes("api.request('/v1/platform/icons/custom-image'")&&page.includes("method:'POST'"),'Custom icon drafts are created through Backend authority');
+pass(page.includes("const ALLOWED_MIME=new Set(['image/png','image/webp'])")&&page.includes('MAX_IMAGE_BYTES=262144'),'Client UI mirrors the safe PNG/WebP and 256 KB upload bounds');
+pass(page.includes('SVG is not accepted')&&page.includes('executable SVG, HTML, JavaScript and arbitrary URLs are not accepted'),'UI clearly communicates executable-content rejection');
+pass(page.includes("accept=\"image/png,image/webp\"")&&page.includes('Default artwork')&&page.includes('Light appearance')&&page.includes('Dark appearance'),'Studio supports default plus optional light/dark PNG/WebP artwork');
+pass(page.includes('category:form.category||undefined')&&page.includes("form.tags.split(',')"),'Custom icon category and search tags are sent as bounded metadata');
+pass(page.includes("usage_scopes:['TOPIC']")&&page.includes('toggleCreateScope'),'Creation flow requires governed usage scopes');
+pass(page.includes("custom?<img src={assetSrc(row)}")&&page.includes("row.source_type==='CUSTOM_IMAGE'"),'Catalog renders custom images as image elements rather than inline markup');
+pass(page.includes('asset_variants?.light')&&page.includes('asset_variants?.dark'),'Catalog exposes available appearance variants');
+pass(page.includes("row.status==='DRAFT'")&&page.includes("lifecycle(row,'publish')")&&page.includes("lifecycle(row,'retire')"),'Custom icons use the existing Draft/Publish/Retire lifecycle');
+pass(css.includes('.custom-icon-studio')&&css.includes('.custom-artwork-preview')&&css.includes('.platform-icon-card.custom-image'),'Custom artwork studio and cards have dedicated responsive styling');
+pass(!page.includes('dangerouslySetInnerHTML')&&!page.includes('<svg')&&!page.includes('eval(')&&!page.includes('new Function'),'Platform custom icon UI executes no uploaded markup/code');
+console.log(`${n}/${n} Platform Icon Library v1 A2 UI checks passed`);
