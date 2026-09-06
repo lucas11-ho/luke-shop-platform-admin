@@ -29,6 +29,8 @@ jobs:
         run: node scripts/v0.9.0-theme-commerce-surfaces-v1-a7-regression-test.mjs
       - name: Platform Icon Library v1 A1 guard
         run: node scripts/v0.9.0-platform-icon-library-v1-a1-regression-test.mjs
+      - name: Platform Icon Library v1 A2 custom image guard
+        run: node scripts/v0.9.0-platform-icon-library-v1-a2-regression-test.mjs
       - name: Production build
         run: npm run build
       - name: Dependency audit
