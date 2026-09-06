@@ -4,7 +4,8 @@ const page=read('src/pages/IconLibraryPage.jsx'),icons=read('src/components/Them
 pass(app.includes("'/icons':IconLibraryPage")&&app.includes("IconLibraryPage"),'Platform Admin routes the Icon Library workspace');
 pass(shell.includes("['/icons','Icon Library'"),'Platform navigation exposes Icon Library');
 pass(page.includes("'/v1/platform/icons'")&&page.includes('/scopes'),'Workspace reads the authoritative catalog and updates usage scopes through Backend');
-pass(page.includes("const SCOPES=['NAVIGATION','TOPIC','CATEGORY','ACCOUNT','ACTION']"),'Workspace exposes all approved reusable icon scopes including Topic');
+pass(page.includes("const SCOPES=['NAVIGATION','TOPIC','CATEGORY','ACCOUNT','ACTION','MENU']"),'Workspace exposes the complete governed icon scope set including Menu');
+pass(['NAVIGATION','TOPIC','CATEGORY','ACCOUNT','ACTION'].every(scope=>page.includes(`'${scope}'`))&&page.includes("'MENU'"),'MENU is additive and preserves every original governed icon scope');
 pass(page.includes('Client admins select published icon keys')&&page.includes('executable SVG'),'Platform UI preserves the safe client-selection boundary while allowing additive safe asset types');
 pass(page.includes("row.status==='PUBLISHED'")&&page.includes("row.status==='DRAFT'")&&page.includes("row.status==='RETIRED'"),'Icon lifecycle states have explicit UI behavior');
 pass(page.includes("lifecycle(row,'publish')")&&page.includes("lifecycle(row,'retire')")&&page.includes("lifecycle(row,'delete')"),'Platform Owner can publish, retire or delete drafts');
