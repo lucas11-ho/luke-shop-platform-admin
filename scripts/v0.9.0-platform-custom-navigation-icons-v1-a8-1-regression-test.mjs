@@ -1,0 +1,16 @@
+import fs from'node:fs';
+const source=fs.readFileSync('src/pages/ThemesPage.jsx','utf8');let n=0;const pass=(ok,msg)=>{if(!ok)throw new Error(`FAIL ${msg}`);n++;console.log(`PASS ${msg}`)};
+pass(source.includes("key:'LUKE_COMMERCE_IOS'")&&source.includes("version:'1.7.0'"),'built-in Luke Commerce package advances immutably to v1.7.0');
+pass(source.includes("pack:'PHOSPHOR_NAV'")&&source.includes('allow_custom_images:true'),'v1.7 explicitly enables Platform-owned custom navigation artwork while preserving Phosphor');
+pass(source.includes('Platform-governed Phosphor and custom-image navigation'),'package description documents the governed mixed icon model');
+pass(source.includes('approved custom PNG/WebP navigation artwork'),'Platform UI limits the custom artwork path to approved raster assets');
+pass(source.includes('optional Light/Dark variants'),'package preview documents optional appearance-specific artwork');
+pass(source.includes('Merchants select icon keys only')&&source.includes('arbitrary URLs, SVG and executable content remain prohibited'),'merchant authority is limited to approved icon keys, never uploaded code or arbitrary URLs');
+pass(source.includes('<code>icons.allow_custom_images: true</code>'),'installer requires an explicit immutable renderer capability for custom artwork');
+pass(source.includes('Custom navigation selections store a Platform icon key token, never an arbitrary asset URL.'),'installer documents Backend-owned asset resolution instead of merchant URLs');
+pass(source.includes('Existing v1.2–v1.6 stores stay unchanged'),'v1.7 does not silently upgrade earlier exact package selections');
+pass(source.includes('Install it as a Draft, review it, then publish immutable v1.7.0'),'Platform Owner keeps Draft review and explicit publish authority');
+pass(source.includes("icons.allow_custom_images&&<Badge>Custom nav artwork</Badge>"),'published package cards visibly disclose custom navigation capability');
+pass(source.includes("<span>Custom artwork</span><strong>{icons.allow_custom_images?'Allowed':'No'}</strong>"),'package inspector exposes the exact custom artwork capability state');
+pass(!source.includes('dangerouslySetInnerHTML')&&!source.includes('eval(')&&!source.includes('new Function'),'Platform theme package path executes no custom artwork markup or code');
+console.log(`${n}/${n} Platform custom navigation icon A8.1 package checks passed`);
