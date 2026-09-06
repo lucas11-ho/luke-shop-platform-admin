@@ -5,10 +5,10 @@ pass(app.includes("'/icons':IconLibraryPage")&&app.includes("IconLibraryPage"),'
 pass(shell.includes("['/icons','Icon Library'"),'Platform navigation exposes Icon Library');
 pass(page.includes("'/v1/platform/icons'")&&page.includes('/scopes'),'Workspace reads the authoritative catalog and updates usage scopes through Backend');
 pass(page.includes("const SCOPES=['NAVIGATION','TOPIC','CATEGORY','ACCOUNT','ACTION']"),'Workspace exposes all approved reusable icon scopes including Topic');
-pass(page.includes('Client admins select an approved icon key')&&page.includes('never upload executable SVG'),'Platform UI explains the safe client-selection boundary');
+pass(page.includes('Client admins select published icon keys')&&page.includes('executable SVG'),'Platform UI preserves the safe client-selection boundary while allowing additive safe asset types');
 pass(page.includes("row.status==='PUBLISHED'")&&page.includes("row.status==='DRAFT'")&&page.includes("row.status==='RETIRED'"),'Icon lifecycle states have explicit UI behavior');
 pass(page.includes("lifecycle(row,'publish')")&&page.includes("lifecycle(row,'retire')")&&page.includes("lifecycle(row,'delete')"),'Platform Owner can publish, retire or delete drafts');
-pass(icons.includes("from '@phosphor-icons/react'")&&icons.includes('PLATFORM_PHOSPHOR_ICONS'),'Icon previews use the pinned professional Phosphor renderer');
+pass(icons.includes("from '@phosphor-icons/react'")&&icons.includes('PLATFORM_PHOSPHOR_ICONS'),'Icon previews keep the pinned professional Phosphor renderer');
 pass(icons.includes("'map-pin':MapPinIcon")&&icons.includes("'shopping-bag':ShoppingBagIcon")&&icons.includes("gift:GiftIcon"),'Renderer covers the initial 20-icon catalog');
 pass(main.includes("import'./icon-library.css'"), 'Icon Library styles are loaded');
 pass(css.includes('.platform-icon-grid')&&css.includes('.platform-icon-scopes button.selected'),'Catalog and scope controls have dedicated professional styling');
